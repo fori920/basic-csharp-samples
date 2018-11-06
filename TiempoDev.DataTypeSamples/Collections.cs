@@ -68,8 +68,12 @@ namespace TiempoDev.DataTypeSamples
 
             // Array type output display
 
-            sb.AppendLine("Arrays: a fixed size collection which commonly uses ");
+            sb.AppendLine("Arrays: a fixed size collection which commonly uses indexes to access its items.")
+                .AppendLine("Here is an example string array data:");
 
+            for (int i = 0; i < _primitiveArray.Length; i++)
+                sb.AppendFormat("[{0}]: {1}", i, _primitiveArray[i]).AppendLine();
+            
             return sb.ToString();
         }
     }
