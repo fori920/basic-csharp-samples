@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using TiempoDev.DataTypeSamples.Generic;
+using System;
 
 namespace TiempoDev.DataTypeSamples
 {
@@ -16,6 +17,18 @@ namespace TiempoDev.DataTypeSamples
 
         public Collections()
         {
+            Clear();
+        }
+
+
+        public void AddElement(string element)
+        {
+            // In this sample, we will be adding elements to the generic list as requested.
+            _genericList.Add(element);
+        }
+
+        public void Clear()
+        {
             _objectList = new ArrayList();
             _genericList = new List<string>();
             // we will start the primitive array with some sample values like fruit names
@@ -26,13 +39,6 @@ namespace TiempoDev.DataTypeSamples
             _objectList.Add(3L);
             _objectList.Add('4');
             _objectList.Add(true);
-        }
-
-
-        public void AddElement(string element)
-        {
-            // In this sample, we will be adding elements to the generic list as requested.
-            _genericList.Add(element);
         }
 
         public string GetDescription()
@@ -52,8 +58,7 @@ namespace TiempoDev.DataTypeSamples
             sb.AppendLine("Generic Lists: strongly-typed lists which accepts values from the specified type")
                 .AppendLine("Printing samples provided:");
 
-            foreach (string item in _genericList)
-                sb.AppendLine(item);
+            AppendListData(sb);
 
             // Array list type output display
 
@@ -61,18 +66,55 @@ namespace TiempoDev.DataTypeSamples
                 .AppendLine("Array Lists: data type-agnostic collection.")
                 .AppendLine("Printing some samples:");
 
-            foreach (object item in _objectList)
-                sb.AppendFormat("Type: {0}, Value: {1}", item.GetType(), item).AppendLine();
+            AppendArrayListData(sb);
 
             // Array type output display
 
             sb.AppendLine("Arrays: a fixed size collection which commonly uses indexes to access its items.")
                 .AppendLine("Here is an example string array data:");
 
-            for (int i = 0; i < _primitiveArray.Length; i++)
-                sb.AppendFormat("[{0}]: {1}", i, _primitiveArray[i]).AppendLine();
+            AppendArrayData(sb);
+
+            sb.AppendLine("Now, let's search at the array with the 'apple' string as criteria:");
+
+            SearchArrayDataBasic("apple", sb);
             
             return sb.ToString();
+        }
+
+        private void AppendListData(StringBuilder sb)
+        {
+            foreach (string item in _genericList)
+                sb.AppendLine(item);
+        }
+
+        private void AppendArrayListData(StringBuilder sb)
+        {
+            foreach (object item in _objectList)
+                sb.AppendFormat("Type: {0}, Value: {1}", item.GetType(), item).AppendLine();
+        }
+
+        private void AppendArrayData(StringBuilder sb)
+        {
+            for (int i = 0; i < _primitiveArray.Length; i++)
+                sb.AppendFormat("[{0}]: {1}", i, _primitiveArray[i]).AppendLine();
+        }
+
+        private void SearchArrayDataBasic(string criteria, StringBuilder sb)
+        {
+            bool found = false;
+            for (int i = 0; i < _primitiveArray.Length; i++)
+            {
+                if (_primitiveArray[i].Equals(criteria))
+                {
+                    found = true;
+                    sb.AppendLine($"Value found in array at position {i}");
+                }
+            }
+
+            if (!found)
+                sb.AppendLine("Value not found in the array.");
+
         }
     }
 }
