@@ -50,6 +50,7 @@
     <Compile Include="Interactive\Utils\TerminalFormatter.cs" />
     <Compile Include="Interactive\Utils\TerminalFormatter.NativeMethods.cs" />
     <Compile Include="Interactive\Utils\TerminalFormatting.cs" />
+    <Compile Include="Operators.cs" />
     <Compile Include="PrimitiveTypes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
