@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Collections.cs" />
+    <Compile Include="FlowControls.cs" />
     <Compile Include="Generic\ISample.cs" />
     <Compile Include="Generic\IWritableSample.cs" />
     <Compile Include="Interactive\Utils\ConsoleUtils.cs" />
