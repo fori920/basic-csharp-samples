@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 using TiempoDev.DataTypeSamples.Generic;
 
 namespace TiempoDev.DataTypeSamples
@@ -81,14 +77,14 @@ namespace TiempoDev.DataTypeSamples
         private void FindInArrayWhileLoop(string criteria, StringBuilder sb)
         {
             int count = 0;
-            while (count <= _fruits.Length)
+            while (count < _fruits.Length)
             {
                 if (criteria == _fruits[count])
                     break;
                 count++;
             }
 
-            if (count > _fruits.Length)
+            if (count >= _fruits.Length)
                 sb.AppendLine("Value was not found in the array");
             else
                 sb.AppendLine($"Value has been found at position {count}");
