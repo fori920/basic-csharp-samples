@@ -43,11 +43,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Collections.cs" />
-    <Compile Include="ISample.cs" />
-    <Compile Include="IWritableSample.cs" />
+    <Compile Include="Generic\ISample.cs" />
+    <Compile Include="Generic\IWritableSample.cs" />
+    <Compile Include="Interactive\Utils\ConsoleUtils.cs" />
+    <Compile Include="Interactive\Utils\TerminalFormatter.cs" />
+    <Compile Include="Interactive\Utils\TerminalFormatter.NativeMethods.cs" />
+    <Compile Include="Interactive\Utils\TerminalFormatting.cs" />
     <Compile Include="PrimitiveTypes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Interactive\SampleRunner.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
