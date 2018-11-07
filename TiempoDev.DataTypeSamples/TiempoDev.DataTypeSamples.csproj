@@ -46,6 +46,7 @@
     <Compile Include="FlowControls.cs" />
     <Compile Include="Generic\ISample.cs" />
     <Compile Include="Generic\IWritableSample.cs" />
+    <Compile Include="Interactive\SampleDefinition.cs" />
     <Compile Include="Interactive\Utils\ConsoleUtils.cs" />
     <Compile Include="Interactive\Utils\TerminalFormatter.cs" />
     <Compile Include="Interactive\Utils\TerminalFormatter.NativeMethods.cs" />

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using TiempoDev.DataTypeSamples.Interactive;
 using TiempoDev.DataTypeSamples.Utils;
 
 namespace TiempoDev.DataTypeSamples
@@ -40,16 +41,17 @@ namespace TiempoDev.DataTypeSamples
             try
             {
                 SampleRunner.Build(_formatter)
-                    .Register<PrimitiveTypes>("Primitive types (int, bool, char, etc.)")
-                    .Register<Collections>("Collections (generic lists, array lists and arrays)")
+                    .Register<PrimitiveTypes>('1')
+                    .Register<Collections>('2')
+                    .Register<FlowControls>('3')
+                    .Register<Operators>('4')
                     .Run();
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"An error has ocurred: {ex.Message}");
+                Console.WriteLine($"An error has ocurred: {ex.ToString()}");
+                throw;
             }
-
-            //Thread.Sleep(TimeSpan.FromSeconds(5));
         }
     }
 }
