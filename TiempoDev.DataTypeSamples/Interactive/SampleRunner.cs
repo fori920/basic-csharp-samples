@@ -24,7 +24,9 @@ namespace TiempoDev.DataTypeSamples
         {
             _sampleList = new Dictionary<string, ISample>();
             _consoleBuffer = new StringBuilder();
-            _formatter = formatter ?? throw new ArgumentNullException(nameof(formatter));
+
+            if (formatter == null) throw new ArgumentNullException(nameof(formatter));
+            _formatter = formatter;
 
             _consoleWidth = ConsoleUtils.ConsoleWidth;
             _consoleHeight = ConsoleUtils.ConsoleHeight;
@@ -52,13 +54,18 @@ namespace TiempoDev.DataTypeSamples
             _consoleBuffer.Append(_formatter.SwitchAlternateScreenBuffer(true));
             // Hide the cursor.
             _consoleBuffer.Append(_formatter.SetCursorVisibility(false));
-            
 
             try
             {
                 // Create the initial sample menu
                 CreateSampleMenu(_consoleBuffer);
                 FlushConsoleBuffer();
+
+                while (true)
+                {
+
+                    break;
+                }
 
                 Thread.Sleep(TimeSpan.FromSeconds(5));
             }
@@ -104,5 +111,6 @@ namespace TiempoDev.DataTypeSamples
 
         }
 
+        private void ReadConsoleData()
     }
 }
