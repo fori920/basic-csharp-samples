@@ -58,7 +58,8 @@ namespace TiempoDev.DataTypeSamples.Utils
             if (handle == (IntPtr)(-1))
                 throw new Win32Exception();
 
-            if (!NativeMethods.GetConsoleMode(handle, out uint consoleMode))
+            uint consoleMode = 0;
+            if (!NativeMethods.GetConsoleMode(handle, out consoleMode))
                 throw new Win32Exception();
 
             // Note: DisableNewlineAutoReturn seems to have a different behavior than documented:
